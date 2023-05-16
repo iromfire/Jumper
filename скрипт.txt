@@ -1,0 +1,565 @@
+USE [LearnDatabase]
+GO
+/****** Object:  Table [dbo].[Client]    Script Date: 16.05.2023 11:06:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Client](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[SecondName] [nvarchar](255) NOT NULL,
+	[FirstName] [nvarchar](255) NOT NULL,
+	[ThirdName] [nvarchar](255) NOT NULL,
+	[Sex] [nvarchar](255) NOT NULL,
+	[PhoneNumber] [nvarchar](255) NOT NULL,
+	[BirthDate] [date] NOT NULL,
+	[Email] [nvarchar](255) NOT NULL,
+	[RegDate] [nvarchar](255) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Service]    Script Date: 16.05.2023 11:06:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Service](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
+	[Image] [nvarchar](255) NOT NULL,
+	[Duration] [nvarchar](255) NOT NULL,
+	[Cost] [int] NOT NULL,
+	[Sale] [nvarchar](255) NOT NULL,
+ CONSTRAINT [PK_Service] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ServiceClient]    Script Date: 16.05.2023 11:06:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ServiceClient](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
+	[StartDate] [date] NOT NULL,
+	[ClientName] [nvarchar](255) NOT NULL,
+ CONSTRAINT [PK_ServiceClient] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Client] ON 
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (1, N'Васильев', N' Оскар', N' Богданович', N' м', N' 7(585)801-94-29 ', CAST(N'1971-01-30' AS Date), N' miturria@verizon.net', N' 2017-05-28')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (2, N'Лазарев', N'Алексей', N'Богданович', N' м', N' 7(0055)737-37-48 ', CAST(N'1977-03-10' AS Date), N' claesjac@me.com', N' 2017-01-02')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (3, N'Казаков', N'Дмитрий', N'Русланович', N' м', N' 7(51)682-19-40 ', CAST(N'1978-12-15' AS Date), N' ozawa@verizon.net', N' 2016-05-21')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (4, N'Попова', N'Харита', N'Якуновна', N' ж', N' 7(335)386-81-06 ', CAST(N'1997-12-16' AS Date), N' firstpr@verizon.net', N' 2016-07-05')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (5, N'Турова', N'Георгина', N'Семёновна', N' ж', N' 7(555)321-42-99 ', CAST(N'1974-05-28' AS Date), N' yruan@optonline.net', N' 2018-02-22')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (6, N'Андреев', N' Станислав', N' Максович', N' м', N' 7(02)993-91-28 ', CAST(N'1975-10-10' AS Date), N' budinger@mac.com', N' 2017-12-26')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (7, N'Орлова', N'Влада', N'Мартыновна', N' ж', N' 7(2506)433-38-35 ', CAST(N'1990-06-26' AS Date), N' rnelson@yahoo.ca', N' 2016-03-21')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (8, N'Костина', N'Любава', N'Авксентьевна', N' ж', N' 7(6419)959-21-87 ', CAST(N'1972-07-13' AS Date), N' gordonjcp@hotmail.com', N' 2016-02-26')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (9, N'Александров', N' Станислав', N' Эдуардович', N' м', N' 7(18)164-05-12 ', CAST(N'1981-07-04' AS Date), N' bigmauler@aol.com', N' 2018-11-08')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (10, N'Корнилова', N'Анэля', N'Михайловна', N' ж', N' 7(20)980-01-60 ', CAST(N'1973-04-02' AS Date), N' jonathan@aol.com', N' 2016-05-22')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (11, N'Морозов', N'Наум', N'Валерьянович', N' м', N' 7(636)050-96-13 ', CAST(N'1985-07-04' AS Date), N' salesgeek@mac.com', N' 2016-05-02')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (12, N'Баранова', N' Эльмира', N' Дмитриевна', N' женский', N' 7(9240)643-15-50 ', CAST(N'1977-01-15' AS Date), N' jgmyers@comcast.net', N' 2016-07-08')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (13, N'Степанова', N' Амелия', N' Робертовна', N' ж', N' 7(1217)441-28-42 ', CAST(N'1970-06-06' AS Date), N' rasca@hotmail.com', N' 2017-09-27')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (14, N'Горбачёв', N'Давид', N'Тимурович', N' м', N' 7(53)602-85-41 ', CAST(N'1983-05-22' AS Date), N' hedwig@att.net', N' 2018-12-17')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (15, N'Волков', N'Людвиг', N'Витальевич', N' м', N' 7(8459)592-05-58 ', CAST(N'1977-12-27' AS Date), N' jrkorson@msn.com', N' 2016-04-27')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (16, N'Комиссарова', N' Амалия', N' Робертовна', N' женский', N' 7(22)647-46-32 ', CAST(N'1971-08-18' AS Date), N' jorgb@msn.com', N' 2017-08-04')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (17, N'Большаков', N'Вадим', N'Данилович', N' м', N' 7(386)641-13-37 ', CAST(N'1970-05-15' AS Date), N' uncle@gmail.com', N' 2018-08-04')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (18, N'Абрамов', N'Станислав', N'Филатович', N' мужской', N' 7(6545)478-87-79 ', CAST(N'1989-05-18' AS Date), N' solomon@att.net', N' 2016-12-08')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (19, N'Журавлёв', N' Леонтий', N' Яковлевич', N' мужской', N' 7(4403)308-56-96 ', CAST(N'2000-03-02' AS Date), N' cmdrgravy@me.com', N' 2018-01-15')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (20, N'Селиверстов', N'Глеб', N'Максимович', N' м', N' 7(20)554-28-68 ', CAST(N'1999-06-20' AS Date), N' jigsaw@sbcglobal.net', N' 2016-01-07')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (21, N'Киселёв', N' Устин', N' Яковлевич', N' мужской', N' 7(83)334-52-76 ', CAST(N'1985-01-08' AS Date), N' dalamb@verizon.net', N' 2018-06-21')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (22, N'Зуев', N'Матвей', N'Иванович', N' м', N' 7(5383)893-04-66 ', CAST(N'1981-03-28' AS Date), N' brickbat@verizon.net', N' 2018-12-18')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (23, N'Ершов', N' Глеб', N' Федорович', N' мужской', N' 7(2608)298-40-82 ', CAST(N'1970-06-14' AS Date), N' sjava@aol.com', N' 2016-09-14')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (24, N'Бобылёв', N' Георгий', N' Витальевич', N' м', N' 7(88)685-13-51 ', CAST(N'1983-12-19' AS Date), N' csilvers@mac.com', N' 2018-04-06')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (25, N'Ефремов', N' Витольд', N' Авксентьевич', N' м', N' 7(93)922-14-03 ', CAST(N'1975-12-02' AS Date), N' kwilliams@yahoo.ca', N' 2018-04-09')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (26, N'Андреева', N'Патрисия', N'Валерьевна', N' ж', N' 7(9648)953-81-26 ', CAST(N'1993-11-18' AS Date), N' jigsaw@aol.com', N' 2016-07-17')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (27, N'Ефимова', N' Магда', N' Платоновна', N' ж', N' 7(9261)386-15-92 ', CAST(N'1995-08-16' AS Date), N' rbarreira@me.com', N' 2017-08-01')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (28, N'Голубев', N' Иосиф', N' Тимофеевич', N' м', N' 7(78)972-73-11 ', CAST(N'1982-05-06' AS Date), N' smcnabb@att.net', N' 2018-08-18')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (29, N'Евсеев', N' Макар', N' Васильевич', N' м', N' 7(2141)077-85-70 ', CAST(N'1977-09-13' AS Date), N' parsimony@sbcglobal.net', N' 2018-12-05')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (30, N'Бобров', N'Агафон', N'Лаврентьевич', N' м', N' 7(2159)507-39-57 ', CAST(N'1995-07-29' AS Date), N' petersen@comcast.net', N' 2017-05-09')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (31, N'Игнатов', N'Захар', N'Павлович', N' м', N' 7(578)574-73-36 ', CAST(N'1998-10-07' AS Date), N' dieman@icloud.com', N' 2017-11-10')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (32, N'Гущина', N' Янита', N' Федоровна', N' ж', N' 7(4544)716-68-96 ', CAST(N'1999-03-02' AS Date), N' lishoy@att.net', N' 2018-02-01')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (33, N'Калашников', N' Артур', N' Юрьевич', N' м', N' 7(147)947-47-21 ', CAST(N'1972-12-13' AS Date), N' oevans@aol.com', N' 2017-08-20')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (34, N'Дмитриева', N' Элина', N' Даниловна', N' ж', N' 7(787)140-48-84 ', CAST(N'1988-12-10' AS Date), N' vmalik@live.com', N' 2017-02-11')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (35, N'Федотова', N'Сандра', N'Владленовна', N' ж', N' 7(126)195-25-86 ', CAST(N'1985-03-29' AS Date), N' penna@verizon.net', N' 2016-11-08')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (36, N'Кузьмина', N'Дэнна', N'Витальевна', N' женский', N' 7(9940)977-45-73 ', CAST(N'1993-08-24' AS Date), N' nichoj@mac.com', N' 2016-03-27')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (37, N'Колобова', N' Злата', N' Романовна', N' ж', N' 7(50)884-07-35 ', CAST(N'1994-08-25' AS Date), N' sinkou@aol.com', N' 2016-12-03')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (38, N'Некрасов', N'Варлам', N'Михайлович', N' мужской', N' 7(019)258-06-35 ', CAST(N'2000-11-12' AS Date), N' dogdude@verizon.net', N' 2017-12-03')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (39, N'Колобов', N' Орест', N' Юлианович', N' м', N' 7(1680)508-58-26 ', CAST(N'2001-07-14' AS Date), N' parkes@verizon.net', N' 2017-01-01')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (40, N'Блохин', N' Пантелеймон', N' Феликсович', N' м', N' 7(9524)556-48-98 ', CAST(N'1978-03-06' AS Date), N' balchen@comcast.net', N' 2018-02-14')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (41, N'Калинин', N'Петр', N'Иванович', N' мужской', N' 7(90)316-07-17 ', CAST(N'1993-09-08' AS Date), N' aschmitz@hotmail.com', N' 2016-05-26')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (42, N'Беляева', N'Сабрина', N'Федосеевна', N' ж', N' 7(6580)534-32-58 ', CAST(N'1972-07-26' AS Date), N' agapow@gmail.com', N' 2017-06-14')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (43, N'Агафонов', N' Юстиниан', N' Олегович', N' м', N' 7(303)810-28-78 ', CAST(N'1997-02-02' AS Date), N' staffelb@sbcglobal.net', N' 2016-06-08')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (44, N'Мамонтова', N'Марфа', N'Мироновна', N' ж', N' 7(38)095-64-18 ', CAST(N'1984-10-19' AS Date), N' rfoley@verizon.net', N' 2018-02-27')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (45, N'Блинов', N' Евгений', N' Мэлсович', N' м', N' 7(0852)321-82-64 ', CAST(N'1994-01-05' AS Date), N' moxfulder@outlook.com', N' 2017-05-07')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (46, N'Воронова', N'Изабелла', N'Вячеславовна', N' ж', N' 7(17)433-44-98 ', CAST(N'1999-09-24' AS Date), N' kildjean@sbcglobal.net', N' 2017-12-21')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (47, N'Медведев', N' Святослав', N' Юлианович', N' мужской', N' 7(3520)435-21-20 ', CAST(N'1972-10-04' AS Date), N' hllam@comcast.net', N' 2018-10-13')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (48, N'Куликова', N'Эвелина', N'Вячеславовна', N' ж', N' 7(0236)682-42-78 ', CAST(N'1997-11-14' AS Date), N' ilikered@hotmail.com', N' 2018-02-01')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (49, N'Суворова', N'Божена', N'Анатольевна', N' ж', N' 7(347)895-86-57 ', CAST(N'1981-03-09' AS Date), N' attwood@aol.com', N' 2016-01-28')
+GO
+INSERT [dbo].[Client] ([Id], [SecondName], [FirstName], [ThirdName], [Sex], [PhoneNumber], [BirthDate], [Email], [RegDate]) VALUES (50, N'Егорова', N' Амалия', N' Дамировна', N' женский', N' 7(7486)408-12-26 ', CAST(N'1999-09-28' AS Date), N' drezet@yahoo.com', N' 2016-06-30')
+GO
+SET IDENTITY_INSERT [dbo].[Client] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Service] ON 
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (1, N'Занятие с репетитором-носителем китайского языка', N' Услуги школы\Китайский язык.jpg', N' 120 мин.', 1950, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (2, N'Индивидуальный урок немецкого языка с преподавателем-носителем языка', N' Услуги школы\Немецкий язык.png', N' 110 мин.', 1340, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (3, N'Киноклуб китайского языка для студентов', N' Услуги школы\киноклуб.jpg', N' 100 мин.', 1990, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (4, N'Индивидуальный онлайн-урок японского языка по Skype', N' Услуги школы\online lessons.jpg', N' 4800 сек.', 1000, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (5, N'Киноклуб испанского языка для студентов', N' Услуги школы\киноклуб.jpg', N' 40 мин.', 1050, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (6, N'Занятие с русскоязычным репетитором испанского языка', N' Услуги школы\Испанский язык.jpg', N' 50 мин.', 1450, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (7, N'Урок в группе итальянского языка для взрослых', N' Услуги школы\Итальянский язык.jpg', N' 40 мин.', 1290, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (8, N'Интенсивный онлайн-курс французского языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 2400 сек.', 1180, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (9, N'Индивидуальный урок французского языка с преподавателем-носителем языка', N' Услуги школы\Французский язык.jpg', N' 2400 сек.', 1410, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (10, N'Урок в группе французского языка для школьников', N' Услуги школы\Французский язык.jpg', N' 6000 сек.', 1970, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (11, N'Занятие с репетитором-носителем английского языка', N' Услуги школы\Английский язык.jpg', N' 6600 сек.', 910, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (12, N'Киноклуб французского языка для взрослых', N' Услуги школы\киноклуб.jpg', N' 5400 сек.', 1770, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (13, N'Киноклуб немецкого языка для взрослых', N' Услуги школы\киноклуб.jpg', N' 100 мин.', 1560, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (14, N'Урок в группе японского языка для школьников', N' Услуги школы\Японский язык.jpg', N' 80 мин.', 1300, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (15, N'Индивидуальный урок испанского языка с русскоязычным преподавателем', N' Услуги школы\Испанский язык.jpg', N' 60 мин.', 1790, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (16, N'Интенсивный онлайн-курс итальянского языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 4200 сек.', 1230, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (17, N'Урок в группе японского языка для студентов', N' Услуги школы\Японский язык.jpg', N' 3000 сек.', 1860, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (18, N'Интенсивный курс с преподавателем-носителем английского языка для компаний', N' Услуги школы\for company.jpg', N' 110 мин.', 1670, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (19, N'Киноклуб итальянского языка для студентов', N' Услуги школы\киноклуб.jpg', N' 30 мин.', 1760, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (20, N'Урок в группе испанского языка для взрослых', N' Услуги школы\Испанский язык.jpg', N' 1800 сек.', 1730, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (21, N'Урок в группе испанского языка для студентов', N' Услуги школы\Испанский язык.jpg', N' 100 мин.', 1310, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (22, N'Интенсивный онлайн-курс испанского языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 120 мин.', 1510, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (23, N'Урок в группе английского языка для школьников', N' Услуги школы\Английский язык.jpg', N' 6600 сек.', 900, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (24, N'Занятие с репетитором-носителем испанского языка', N' Услуги школы\Испанский язык.jpg', N' 3000 сек.', 1090, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (25, N'Интенсивный курс с преподавателем-носителем итальянского языка для компаний', N' Услуги школы\for company.jpg', N' 2400 сек.', 1190, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (26, N'Урок в группе китайского языка для студентов', N' Услуги школы\Китайский язык.jpg', N' 2400 сек.', 2000, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (27, N'Индивидуальный урок испанского языка с преподавателем-носителем языка', N' Услуги школы\Испанский язык.jpg', N' 90 мин.', 1200, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (28, N'Интенсивный онлайн-курс португальского языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 70 мин.', 1610, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (29, N'Подготовка к экзамену ACT', N' Услуги школы\Подготовка к экзамену ACT.png', N' 50 мин.', 1440, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (30, N'Урок в группе китайского языка для взрослых', N' Услуги школы\Китайский язык.jpg', N' 4200 сек.', 1730, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (31, N'Интенсивный онлайн-курс английского языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 3000 сек.', 1160, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (32, N'Подготовка к экзамену TOEFL', N' Услуги школы\Подготовка к экзамену TOEFL.jpg', N' 6000 сек.', 1070, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (33, N'Занятие с репетитором-носителем итальянского языка', N' Услуги школы\Итальянский язык.jpg', N' 7200 сек.', 1370, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (34, N'Урок в группе английского языка для взрослых', N' Услуги школы\Английский язык.jpg', N' 3000 сек.', 1010, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (35, N'Киноклуб английского языка для взрослых', N' Услуги школы\киноклуб.jpg', N' 70 мин.', 1250, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (36, N'Интенсивный курс с преподавателем-носителем французского языка для компаний', N' Услуги школы\for company.jpg', N' 70 мин.', 1630, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (37, N'Урок в группе испанского языка для школьников', N' Услуги школы\Испанский язык.jpg', N' 7200 сек.', 1910, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (38, N'Подготовка к экзамену GRE', N' Услуги школы\Подготовка к экзамену GRE.jpeg', N' 80 мин.', 1300, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (39, N'Урок в группе английского языка для студентов', N' Услуги школы\Английский язык.jpg', N' 4800 сек.', 960, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (40, N'Занятие с русскоязычным репетитором японского языка', N' Услуги школы\Японский язык.jpg', N' 2400 сек.', 1260, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (41, N'Индивидуальный онлайн-урок немецкого языка по Skype', N' Услуги школы\online lessons.jpg', N' 90 мин.', 970, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (42, N'Интенсивный курс японского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 80 мин.', 1500, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (43, N'Киноклуб китайского языка для взрослых', N' Услуги школы\киноклуб.jpg', N' 70 мин.', 1800, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (44, N'Индивидуальный урок китайского языка с русскоязычным преподавателем', N' Услуги школы\Китайский язык.jpg', N' 120 мин.', 1860, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (45, N'Подготовка к экзамену GMAT', N' Услуги школы\Подготовка к экзамену GMAT.png', N' 70 мин.', 1150, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (46, N'Подготовка к экзамену IELTS', N' Услуги школы\Подготовка к экзамену IELTS.jpg', N' 7200 сек.', 1730, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (47, N'Подготовка к экзамену SAT', N' Услуги школы\Подготовка к экзамену SAT.png', N' 40 мин.', 1560, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (48, N'Урок в группе китайского языка для школьников', N' Услуги школы\Китайский язык.jpg', N' 3000 сек.', 1180, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (49, N'Киноклуб английского языка для студентов', N' Услуги школы\киноклуб.jpg', N' 4800 сек.', 980, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (50, N'Киноклуб португальского языка для студентов', N' Услуги школы\киноклуб.jpg', N' 1800 сек.', 1170, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (51, N'Киноклуб китайского языка для детей', N' Услуги школы\киноклуб.jpg', N' 100 мин.', 1120, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (52, N'Урок в группе немецкого языка для школьников', N' Услуги школы\Немецкий язык.png', N' 1800 сек.', 1570, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (53, N'Индивидуальный онлайн-урок испанского языка по Skype', N' Услуги школы\online lessons.jpg', N' 4200 сек.', 1780, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (54, N'Урок в группе немецкого языка для взрослых', N' Услуги школы\Немецкий язык.png', N' 60 мин.', 930, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (55, N'Индивидуальный урок китайского языка с преподавателем-носителем языка', N' Услуги школы\Китайский язык.jpg', N' 90 мин.', 1480, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (56, N'Занятие с русскоязычным репетитором португальского языка', N' Услуги школы\Португальский язык.jpg', N' 3000 сек.', 1970, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (57, N'Интенсивный курс китайского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 6600 сек.', 1470, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (58, N'Занятие с русскоязычным репетитором немецкого языка', N' Услуги школы\Немецкий язык.png', N' 1800 сек.', 1420, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (59, N'Киноклуб английского языка для детей', N' Услуги школы\киноклуб.jpg', N' 2400 сек.', 1280, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (60, N'Занятие с репетитором-носителем немецкого языка', N' Услуги школы\Немецкий язык.png', N' 7200 сек.', 1120, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (61, N'Индивидуальный онлайн-урок китайского языка по Skype', N' Услуги школы\online lessons.jpg', N' 4200 сек.', 1410, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (62, N'Индивидуальный урок английского языка с преподавателем-носителем языка', N' Услуги школы\Английский язык.jpg', N' 7200 сек.', 1300, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (63, N'Интенсивный курс с преподавателем-носителем немецкого языка для компаний', N' Услуги школы\for company.jpg', N' 120 мин.', 1180, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (64, N'Интенсивный онлайн-курс немецкого языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 4200 сек.', 1840, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (65, N'Урок в группе итальянского языка для школьников', N' Услуги школы\Итальянский язык.jpg', N' 6000 сек.', 1410, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (66, N'Индивидуальный урок итальянского языка с русскоязычным преподавателем', N' Услуги школы\Итальянский язык.jpg', N' 30 мин.', 1330, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (67, N'Интенсивный онлайн-курс китайского языка для компаний по Skype', N' Услуги школы\online lessons.jpg', N' 120 мин.', 1760, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (68, N'Занятие с русскоязычным репетитором французского языка', N' Услуги школы\Французский язык.jpg', N' 6000 сек.', 1870, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (69, N'Индивидуальный урок немецкого языка с русскоязычным преподавателем', N' Услуги школы\Немецкий язык.png', N' 1800 сек.', 990, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (70, N'Индивидуальный онлайн-урок английского языка по Skype', N' Услуги школы\online lessons.jpg', N' 6000 сек.', 1880, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (71, N'Индивидуальный урок французского языка с русскоязычным преподавателем', N' Услуги школы\Французский язык.jpg', N' 4200 сек.', 1390, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (72, N'Интенсивный курс португальского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 60 мин.', 2010, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (73, N'Индивидуальный онлайн-урок французского языка по Skype', N' Услуги школы\online lessons.jpg', N' 7200 сек.', 2010, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (74, N'Интенсивный курс английского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 4800 сек.', 1210, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (75, N'Урок в группе французского языка для взрослых', N' Услуги школы\Французский язык.jpg', N' 120 мин.', 960, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (76, N'Подготовка к экзамену IELTS Speaking Club', N' Услуги школы\Подготовка к экзамену IELTS.jpg', N' 90 мин.', 1430, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (77, N'Киноклуб итальянского языка для детей', N' Услуги школы\киноклуб.jpg', N' 70 мин.', 1480, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (78, N'Урок в группе итальянского языка для студентов', N' Услуги школы\Итальянский язык.jpg', N' 110 мин.', 1020, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (79, N'Индивидуальный урок итальянского языка с преподавателем-носителем языка', N' Услуги школы\Итальянский язык.jpg', N' 80 мин.', 1690, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (80, N'Киноклуб немецкого языка для детей', N' Услуги школы\киноклуб.jpg', N' 120 мин.', 1670, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (81, N'Киноклуб итальянского языка для взрослых', N' Услуги школы\киноклуб.jpg', N' 110 мин.', 1760, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (82, N'Киноклуб португальского языка для взрослых', N' Услуги школы\киноклуб.jpg', N' 1800 сек.', 950, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (83, N'Киноклуб португальского языка для детей', N' Услуги школы\киноклуб.jpg', N' 90 мин.', 1710, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (84, N'Киноклуб французского языка для детей', N' Услуги школы\киноклуб.jpg', N' 90 мин.', 1600, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (85, N'Урок в группе японского языка для взрослых', N' Услуги школы\Японский язык.jpg', N' 80 мин.', 1420, N'5%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (86, N'Интенсивный курс французского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 40 мин.', 1940, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (87, N'Занятие с русскоязычным репетитором итальянского языка', N' Услуги школы\Итальянский язык.jpg', N' 4200 сек.', 1620, N'20%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (88, N'Индивидуальный урок английского языка с русскоязычным преподавателем', N' Услуги школы\Английский язык.jpg', N' 30 мин.', 1910, N'10%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (89, N'Интенсивный курс с преподавателем-носителем португальского языка для компаний', N' Услуги школы\for company.jpg', N' 30 мин.', 1580, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (90, N'Интенсивный курс испанского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 5400 сек.', 1000, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (91, N'Киноклуб немецкого языка для студентов', N' Услуги школы\киноклуб.jpg', N' 50 мин.', 1140, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (92, N'Занятие с репетитором-носителем французского языка', N' Услуги школы\Французский язык.jpg', N' 50 мин.', 2040, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (93, N'Урок в группе немецкого языка для студентов', N' Услуги школы\Немецкий язык.png', N' 4200 сек.', 1240, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (94, N'Занятие с русскоязычным репетитором китайского языка', N' Услуги школы\Китайский язык.jpg', N' 6600 сек.', 940, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (95, N'Занятие с репетитором-носителем японского языка', N' Услуги школы\Японский язык.jpg', N' 3000 сек.', 1100, N'25%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (96, N'Урок в группе французского языка для студентов', N' Услуги школы\Французский язык.jpg', N' 1800 сек.', 1910, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (97, N'Интенсивный курс итальянского языка с русскоязычным преподавателем для компаний', N' Услуги школы\for company.jpg', N' 110 мин.', 900, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (98, N'Занятие с русскоязычным репетитором английского языка', N' Услуги школы\Английский язык.jpg', N' 90 мин.', 1950, N'15%')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (99, N'Интенсивный курс с преподавателем-носителем испанского языка для компаний', N' Услуги школы\for company.jpg', N' 90 мин.', 1660, N' нет')
+GO
+INSERT [dbo].[Service] ([Id], [Name], [Image], [Duration], [Cost], [Sale]) VALUES (100, N'Интенсивный курс с преподавателем-носителем японского языка для компаний', N' Услуги школы\for company.jpg', N' 4200 сек.', 1380, N'20%')
+GO
+SET IDENTITY_INSERT [dbo].[Service] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ServiceClient] ON 
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (1, N'Урок в группе французского языка для школьников', CAST(N'2019-11-16' AS Date), N'Суворова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (2, N'Индивидуальный онлайн-урок немецкого языка по Skype', CAST(N'2019-01-11' AS Date), N'Колобова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (3, N'Киноклуб итальянского языка для студентов', CAST(N'2019-12-01' AS Date), N'Колобова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (4, N'Интенсивный онлайн-курс португальского языка для компаний по Skype', CAST(N'2019-02-11' AS Date), N'Колобова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (5, N'Урок в группе китайского языка для взрослых', CAST(N'2019-09-10' AS Date), N'Селиверстов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (6, N'Урок в группе китайского языка для студентов', CAST(N'2019-02-12' AS Date), N'Куликова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (7, N'Занятие с репетитором-носителем французского языка', CAST(N'2019-04-04' AS Date), N'Бобылёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (8, N'Урок в группе испанского языка для взрослых', CAST(N'2019-05-15' AS Date), N'Киселёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (9, N'Урок в группе немецкого языка для школьников', CAST(N'2019-01-16' AS Date), N'Комиссарова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (10, N'Урок в группе английского языка для взрослых', CAST(N'2019-01-16' AS Date), N'Бобров')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (11, N'Урок в группе немецкого языка для школьников', CAST(N'2019-03-15' AS Date), N'Казаков')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (12, N'Индивидуальный онлайн-урок немецкого языка по Skype', CAST(N'2019-01-31' AS Date), N'Андреева')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (13, N'Интенсивный онлайн-курс немецкого языка для компаний по Skype', CAST(N'2019-11-19' AS Date), N'Андреев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (14, N'Подготовка к экзамену TOEFL', CAST(N'2019-01-10' AS Date), N'Калашников')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (15, N'Урок в группе немецкого языка для школьников', CAST(N'2019-04-29' AS Date), N'Федотова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (16, N'Киноклуб немецкого языка для детей', CAST(N'2019-10-12' AS Date), N'Агафонов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (17, N'Урок в группе китайского языка для школьников', CAST(N'2019-02-13' AS Date), N'Куликова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (18, N'Интенсивный онлайн-курс немецкого языка для компаний по Skype', CAST(N'2019-02-01' AS Date), N'Калашников')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (19, N'Интенсивный курс с преподавателем-носителем немецкого языка для компаний', CAST(N'2019-11-12' AS Date), N'Бобров')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (20, N'Киноклуб португальского языка для детей', CAST(N'2019-01-11' AS Date), N'Большаков')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (21, N'Киноклуб португальского языка для студентов', CAST(N'2019-03-23' AS Date), N'Александров')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (22, N'Киноклуб французского языка для взрослых', CAST(N'2019-06-23' AS Date), N'Агафонов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (23, N'Интенсивный курс с преподавателем-носителем английского языка для компаний', CAST(N'2019-05-25' AS Date), N'Некрасов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (24, N'Интенсивный онлайн-курс китайского языка для компаний по Skype', CAST(N'2019-02-18' AS Date), N'Большаков')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (25, N'Киноклуб немецкого языка для взрослых', CAST(N'2019-07-17' AS Date), N'Федотова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (26, N'Занятие с репетитором-носителем французского языка', CAST(N'2019-08-06' AS Date), N'Федотова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (27, N'Киноклуб итальянского языка для детей', CAST(N'2019-12-14' AS Date), N'Васильев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (28, N'Подготовка к экзамену IELTS Speaking Club', CAST(N'2019-06-28' AS Date), N'Зуев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (29, N'Интенсивный курс итальянского языка с русскоязычным преподавателем для компаний', CAST(N'2019-06-06' AS Date), N'Куликова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (30, N'Киноклуб португальского языка для студентов', CAST(N'2019-06-07' AS Date), N'Бобылёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (31, N'Урок в группе английского языка для школьников', CAST(N'2019-04-30' AS Date), N'Воронова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (32, N'Киноклуб португальского языка для детей', CAST(N'2019-08-30' AS Date), N'Андреев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (33, N'Урок в группе испанского языка для взрослых', CAST(N'2019-05-08' AS Date), N'Ефремов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (34, N'Индивидуальный урок итальянского языка с русскоязычным преподавателем', CAST(N'2019-10-27' AS Date), N'Беляева')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (35, N'Киноклуб немецкого языка для взрослых', CAST(N'2019-01-05' AS Date), N'Бобров')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (36, N'Индивидуальный урок испанского языка с преподавателем-носителем языка', CAST(N'2019-03-04' AS Date), N'Зуев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (37, N'Индивидуальный урок немецкого языка с русскоязычным преподавателем', CAST(N'2019-09-29' AS Date), N'Егорова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (38, N'Киноклуб китайского языка для студентов', CAST(N'2019-01-22' AS Date), N'Ефимова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (39, N'Интенсивный онлайн-курс немецкого языка для компаний по Skype', CAST(N'2019-12-19' AS Date), N'Бобров')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (40, N'Подготовка к экзамену ACT', CAST(N'2019-11-15' AS Date), N'Гущина')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (41, N'Индивидуальный урок французского языка с преподавателем-носителем языка', CAST(N'2019-07-04' AS Date), N'Баранова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (42, N'Индивидуальный онлайн-урок немецкого языка по Skype', CAST(N'2019-08-06' AS Date), N'Киселёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (43, N'Киноклуб немецкого языка для детей', CAST(N'2019-11-09' AS Date), N'Федотова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (44, N'Индивидуальный урок английского языка с преподавателем-носителем языка', CAST(N'2019-02-16' AS Date), N'Бобылёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (45, N'Индивидуальный урок немецкого языка с русскоязычным преподавателем', CAST(N'2019-03-03' AS Date), N'Ершов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (46, N'Урок в группе английского языка для школьников', CAST(N'2019-05-22' AS Date), N'Степанова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (47, N'Урок в группе французского языка для школьников', CAST(N'2019-07-31' AS Date), N'Кузьмина')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (48, N'Индивидуальный урок испанского языка с преподавателем-носителем языка', CAST(N'2019-08-29' AS Date), N'Комиссарова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (49, N'Киноклуб немецкого языка для взрослых', CAST(N'2019-10-02' AS Date), N'Киселёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (50, N'Индивидуальный онлайн-урок немецкого языка по Skype', CAST(N'2019-03-16' AS Date), N'Костина')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (51, N'Подготовка к экзамену ACT', CAST(N'2019-08-27' AS Date), N'Агафонов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (52, N'Индивидуальный урок итальянского языка с русскоязычным преподавателем', CAST(N'2019-06-13' AS Date), N'Абрамов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (53, N'Киноклуб немецкого языка для детей', CAST(N'2019-08-18' AS Date), N'Попова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (54, N'Урок в группе английского языка для взрослых', CAST(N'2019-12-26' AS Date), N'Горбачёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (55, N'Урок в группе итальянского языка для взрослых', CAST(N'2019-11-27' AS Date), N'Морозов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (56, N'Киноклуб немецкого языка для взрослых', CAST(N'2019-09-06' AS Date), N'Медведев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (57, N'Занятие с русскоязычным репетитором английского языка', CAST(N'2019-09-24' AS Date), N'Воронова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (58, N'Интенсивный курс с преподавателем-носителем португальского языка для компаний', CAST(N'2019-03-01' AS Date), N'Гущина')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (59, N'Урок в группе итальянского языка для взрослых', CAST(N'2019-09-28' AS Date), N'Турова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (60, N'Занятие с репетитором-носителем французского языка', CAST(N'2019-03-20' AS Date), N'Волков')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (61, N'Киноклуб немецкого языка для детей', CAST(N'2019-11-27' AS Date), N'Корнилова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (62, N'Занятие с репетитором-носителем немецкого языка', CAST(N'2019-01-23' AS Date), N'Казаков')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (63, N'Индивидуальный урок испанского языка с преподавателем-носителем языка', CAST(N'2019-10-21' AS Date), N'Ефимова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (64, N'Занятие с репетитором-носителем французского языка', CAST(N'2019-08-11' AS Date), N'Голубев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (65, N'Киноклуб немецкого языка для взрослых', CAST(N'2019-01-03' AS Date), N'Орлова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (66, N'Интенсивный онлайн-курс немецкого языка для компаний по Skype', CAST(N'2019-12-31' AS Date), N'Калашников')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (67, N'Урок в группе испанского языка для взрослых', CAST(N'2019-08-29' AS Date), N'Калинин')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (68, N'Киноклуб итальянского языка для студентов', CAST(N'2019-01-03' AS Date), N'Степанова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (69, N'Урок в группе китайского языка для взрослых', CAST(N'2019-04-09' AS Date), N'Горбачёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (70, N'Киноклуб французского языка для взрослых', CAST(N'2019-12-31' AS Date), N'Ефимова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (71, N'Киноклуб итальянского языка для студентов', CAST(N'2019-10-17' AS Date), N'Лазарев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (72, N'Индивидуальный урок немецкого языка с русскоязычным преподавателем', CAST(N'2019-05-17' AS Date), N'Воронова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (73, N'Урок в группе японского языка для школьников', CAST(N'2019-11-23' AS Date), N'Морозов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (74, N'Киноклуб португальского языка для детей', CAST(N'2019-07-10' AS Date), N'Корнилова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (75, N'Занятие с русскоязычным репетитором японского языка', CAST(N'2019-06-09' AS Date), N'Колобова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (76, N'Индивидуальный урок немецкого языка с русскоязычным преподавателем', CAST(N'2019-01-09' AS Date), N'Ершов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (77, N'Занятие с репетитором-носителем немецкого языка', CAST(N'2019-08-15' AS Date), N'Лазарев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (78, N'Киноклуб португальского языка для детей', CAST(N'2019-07-15' AS Date), N'Евсеев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (79, N'Урок в группе японского языка для школьников', CAST(N'2019-12-31' AS Date), N'Киселёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (80, N'Урок в группе итальянского языка для взрослых', CAST(N'2019-12-22' AS Date), N'Гущина')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (81, N'Киноклуб китайского языка для детей', CAST(N'2019-12-28' AS Date), N'Горбачёв')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (82, N'Индивидуальный урок немецкого языка с русскоязычным преподавателем', CAST(N'2019-06-26' AS Date), N'Калашников')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (83, N'Урок в группе французского языка для школьников', CAST(N'2019-04-29' AS Date), N'Корнилова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (84, N'Урок в группе французского языка для школьников', CAST(N'2019-04-13' AS Date), N'Куликова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (85, N'Урок в группе китайского языка для школьников', CAST(N'2019-01-05' AS Date), N'Ершов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (86, N'Занятие с русскоязычным репетитором японского языка', CAST(N'2019-03-25' AS Date), N'Турова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (87, N'Интенсивный курс с преподавателем-носителем английского языка для компаний', CAST(N'2019-11-09' AS Date), N'Евсеев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (88, N'Индивидуальный онлайн-урок немецкого языка по Skype', CAST(N'2019-04-07' AS Date), N'Игнатов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (89, N'Интенсивный онлайн-курс китайского языка для компаний по Skype', CAST(N'2019-11-11' AS Date), N'Суворова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (90, N'Киноклуб немецкого языка для взрослых', CAST(N'2019-01-06' AS Date), N'Дмитриева')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (91, N'Урок в группе китайского языка для школьников', CAST(N'2019-08-20' AS Date), N'Попова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (92, N'Урок в группе китайского языка для школьников', CAST(N'2019-04-16' AS Date), N'Блинов')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (93, N'Урок в группе немецкого языка для школьников', CAST(N'2019-12-22' AS Date), N'Ефимова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (94, N'Киноклуб португальского языка для детей', CAST(N'2019-01-22' AS Date), N'Блохин')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (95, N'Интенсивный курс с преподавателем-носителем английского языка для компаний', CAST(N'2019-09-04' AS Date), N'Костина')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (96, N'Киноклуб итальянского языка для детей', CAST(N'2019-01-01' AS Date), N'Калинин')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (97, N'Урок в группе японского языка для школьников', CAST(N'2019-01-29' AS Date), N'Федотова')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (98, N'Киноклуб английского языка для студентов', CAST(N'2019-07-06' AS Date), N'Блохин')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (99, N'Занятие с русскоязычным репетитором английского языка', CAST(N'2019-12-05' AS Date), N'Голубев')
+GO
+INSERT [dbo].[ServiceClient] ([Id], [Name], [StartDate], [ClientName]) VALUES (100, N'Урок в группе китайского языка для школьников', CAST(N'2019-04-05' AS Date), N'Селиверстов')
+GO
+SET IDENTITY_INSERT [dbo].[ServiceClient] OFF
+GO
